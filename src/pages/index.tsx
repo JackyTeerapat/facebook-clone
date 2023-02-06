@@ -1,14 +1,33 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
-
-const inter = Inter({ subsets: ['latin'] });
+import Navbar from '@/component/Navbar';
 
 export default function Home() {
     return (
         <>
-            <h1 className="text-3xl font-bold underline">Hello world!</h1>
+            <Navbar />
+            <div className="flex flex-row mt-4">
+                <div className="basis-1/6 border-2 border-rose-500">
+                    <p>profile</p>
+                    <p>profile</p>
+                    <p>profile</p>
+                    <p>profile</p>
+                    <p>profile</p>
+                    <p>profile</p>
+                    <p>profile</p>
+                    <p>profile</p>
+                    <p>profile</p>
+                    <p>profile</p>
+                    <p>profile</p>
+                </div>
+                {/* <div className="basis-4/6 border-2 border-rose-500 min-h-fit h-24">
+                    content
+                </div>
+                <div className="basis-1/6 border-2 border-rose-500 min-h-fit h-24">
+                    contact
+                </div> */}
+            </div>
         </>
     );
 }
