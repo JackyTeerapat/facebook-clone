@@ -8,11 +8,7 @@ export default function Home() {
         <>
             <Navbar />
             <div className="flex flex-row mt-4">
-                <div className="basis-1/6 border-2 border-rose-500">
-                    <p>profile</p>
-                    <p>profile</p>
-                    <p>profile</p>
-                    <p>profile</p>
+                <div className="basis-1/6 border-2 border-rose-500 min-h-[6rem]">
                     <p>profile</p>
                     <p>profile</p>
                     <p>profile</p>
