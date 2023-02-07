@@ -13,6 +13,9 @@ module.exports = {
             minHeight: (theme) => ({
                 ...theme('spacing'),
             }),
+            colors: {
+                'hover-color': '#303031',
+            },
         },
     },
 };
