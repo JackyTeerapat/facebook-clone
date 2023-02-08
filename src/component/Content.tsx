@@ -27,25 +27,78 @@ const postItem = [
         picturePost: 'https://i.pinimg.com/originals/8f/69/78/prayutcza55+.jpg',
     },
 ];
-
 function Content() {
     const [textContent, setTextContent] = useState('');
+    const [showModal, setShowModal] = React.useState(false);
     return (
         <>
+            {showModal ? (
+                <>
+                    <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                            {/*content*/}
+                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-[30rem] bg-body-color outline-none focus:outline-none">
+                                {/*header*/}
+                                <div className="flex items-start justify-between p-5 border-b-2 border-solid border-diviner  bg-body-color rounded-t">
+                                    <p className="text-3xl ml-[10rem]">
+                                        สร้างโพสต์
+                                    </p>
+                                    <button
+                                        className="bg-transparent border-0 text-black float-right"
+                                        onClick={() => setShowModal(false)}
+                                    >
+                                        <span className="text-black opacity-7 h-6 w-6 text-xl block  hover:bg-hover-color bg-close-modal py-0 rounded-full">
+                                            x
+                                        </span>
+                                    </button>
+                                </div>
+                                {/*body*/}
+                                <div className="ml-[1rem] mt-[0.5rem] w-[23rem] rounded-t-lg  bg-body-color  ">
+                                    <div className="relative rounded-full w-10 h-10 bg-gray-700">
+                                        {/* <img
+                                            src={profileItem.pictureProfile}
+                                            className="absolute mt-[1rem] ml-[1.5rem] rounded-full w-10 h-10 bg-image"
+                                        ></img> */}
+                                        {/* <img src={pictureProfile}></img> */}
+                                        <p className="pt-[0.2rem] pl-[3.5rem] ">
+                                            {/* {profileItem.name} */}
+                                            test
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="relative p-6 flex-auto">
+                                    <input
+                                        placeholder="คุณคิดอะไรอยู่"
+                                        className={
+                                            ' bg-body-color  rounded-lg p-3 w-full '
+                                        }
+                                    ></input>
+                                </div>
+                                {/*footer*/}
+                                <div className="flex items-center justify-end p-6 border-t border-solid border-diviner rounded-b">
+                                    <button
+                                        className="bg-place-holder-color text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 w-full h-[2.5rem]"
+                                        type="button"
+                                        onClick={() => setShowModal(false)}
+                                    >
+                                        โพสต์
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                </>
+            ) : null}
+
             <div className=" grid-rows-2 mb-[1rem] ">
                 <div className="flex place-content-center rounded-t-lg  border-solid bg-body-color  ml-[7rem] w-[45rem] h-[5rem] ">
                     <div className="mt-[1rem] mr-[1rem] rounded-full w-10 h-10 bg-gray-700"></div>
-                    {/* <input
-                        placeholder="คุณคิดอะไรอยู่"
-                        className="w-[35rem] bg-place-holder-color mt-[1.1rem] h-[2.3rem] rounded-full border-solid border-2 "
-                        value={textContent}
-                        onChange={(event) => {
-                            setTextContent(event.target.value);
-                        }}
-                    ></input> */}
                     <button
                         placeholder="คุณคิดอะไรอยู่"
                         className="w-[35rem] bg-place-holder-color mt-[1.1rem] h-[2.3rem] rounded-full hover:bg-hover-color hover:rounded-full"
+                        type="button"
+                        onClick={() => setShowModal(true)}
                     >
                         <p className="flex ml-[1rem]">คุณคิดอะไรอยู่...</p>
                     </button>

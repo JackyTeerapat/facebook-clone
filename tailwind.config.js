@@ -18,7 +18,8 @@ module.exports = {
                 'body-color': '#242526',
                 'bottom-menu': '#3e4042',
                 'diviner': '#323233',
-                'place-holder-color': '#3a3b3d'
+                'place-holder-color': '#3a3b3d',
+                'close-modal':'#3a3b3c'
             }
         },
     },
