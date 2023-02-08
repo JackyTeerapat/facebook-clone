@@ -98,7 +98,7 @@ const shortCutArr = [
 export default function Home() {
     return (
         <>
-            <Navbar />
+            <Navbar profile_img={profileArr[0].img} />
             <div className="flex flex-row mt-4">
                 {/* left content */}
                 <div className="basis-1/6 min-h-[45rem] max-h-[50rem] hover:overflow-y-auto">

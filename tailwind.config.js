@@ -17,6 +17,8 @@ module.exports = {
                 'hover-color': '#303031',
                 'body-color': '#242526',
                 'bottom-menu': '#3e4042',
+                'input-color': '#3a3b3c',
+                'hover-nav-right': '#4E4F50',
             },
         },
     },
