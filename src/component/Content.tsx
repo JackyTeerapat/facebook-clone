@@ -24,28 +24,24 @@ function Content() {
     const [textContent, setTextContent] = useState('');
     return (
         <>
-            <div className=" grid-rows-2 bg-neutral-100 mb-[1rem]">
-                <div className="flex place-content-center rounded-t-lg border-t-2 border-r-2 border-l-2 border-solid  border-neutral-200 ml-[7rem] w-[50rem] h-[5rem] bg-white">
+            <div className=" grid-rows-2 mb-[1rem] ">
+                <div className="flex place-content-center rounded-t-lg  border-solid bg-body-color  ml-[7rem] w-[50rem] h-[5rem] ">
                     <div className="mt-[1rem] mr-[1rem] rounded-full w-10 h-10 bg-gray-700"></div>
                     <input
                         placeholder="คุณคิดอะไรอยู่"
-                        className="w-[35rem] bg-neutral-100 mt-[1.1rem] h-[2.3rem] rounded-full border-solid border-2 "
+                        className="w-[35rem]  mt-[1.1rem] h-[2.3rem] rounded-full border-solid border-2 "
                         value={textContent}
                         onChange={(event) => {
                             setTextContent(event.target.value);
                         }}
                     ></input>
                 </div>
-                <div className="flex flex-row place-content-center rounded-b-lg border-b-2 border-r-2 border-l-2 border-t-2 ml-[7rem] w-[50rem] h-[4rem] bg-white pl-[7rem] pt-[1rem] ">
-                    <div className="basis-2/6 text-neutral-400 hover:bg-neutral-200">
+                <div className="flex flex-row place-content-center rounded-b-lg bg-body-color  ml-[7rem] w-[50rem] h-[4rem]  pl-[7rem] pt-[1rem] ">
+                    <div className="basis-2/6  hover:bg-hover-color hover:rounded-md">
                         ถ่ายทอดสด
                     </div>
-                    <div className="basis-2/6 text-neutral-400 hover:bg-neutral-200">
-                        รูปภาพ/วิดีโอ
-                    </div>
-                    <div className="basis-2/6 text-neutral-400 hover:bg-neutral-200 ">
-                        ความรู้สึก/กิจกรรม
-                    </div>
+                    <div className="basis-2/6  ">รูปภาพ/วิดีโอ</div>
+                    <div className="basis-2/6   ">ความรู้สึก/กิจกรรม</div>
                 </div>
             </div>
 
@@ -67,7 +63,7 @@ const Post = ({ name, description, pictureProfile }) => {
     return (
         <>
             <div className="flex mt-4 ">
-                <div className="ml-[7rem] w-[50rem] rounded-t-lg border-t-2 border-r-2 border-l-2 bg-white   border-neutral-200 ">
+                <div className="ml-[7rem] w-[50rem] rounded-t-lg  bg-body-color  ">
                     <div className="relative rounded-full w-10 h-10 bg-image">
                         <img
                             src={pictureProfile}
@@ -86,16 +82,10 @@ const Post = ({ name, description, pictureProfile }) => {
                     </p>
                 </div>
             </div>
-            <div className="flex flex-row place-content-center  rounded-b-lg border-b-2 border-r-2 border-l-2 border-t-2  ml-[7rem] w-[50rem] h-[4rem] bg-white pl-[7rem] pt-[1rem] ">
-                <div className="basis-2/6 text-neutral-400 hover:bg-neutral-200">
-                    ถูกใจ
-                </div>
-                <div className="basis-2/6 text-neutral-400 hover:bg-neutral-200">
-                    ความคิดเห็น
-                </div>
-                <div className="basis-2/6 text-neutral-400 hover:bg-neutral-200 ">
-                    แชร์
-                </div>
+            <div className="flex flex-row place-content-center  rounded-b-lg bg-body-color  ml-[7rem] w-[50rem] h-[4rem] pl-[7rem] pt-[1rem] ">
+                <div className="basis-2/6 ">ถูกใจ</div>
+                <div className="basis-2/6 ">ความคิดเห็น</div>
+                <div className="basis-2/6  ">แชร์</div>
             </div>
         </>
     );
