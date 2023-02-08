@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import Image from 'next/image';
 // import Post from './Post';
 
 const postItem = [
@@ -18,6 +19,13 @@ const postItem = [
             'สวัสดีครับท่านสมาชิกชมรมคนชอบ หมี ไม่เข้าใจจริงๆเลยทั้งเด็กทั้งผู้ใหญ่ ตะโกนหา สรรหาแต่หมี วันพระวันเจ้าไม่เว้นกันเลยยยยยยย คนที่ไหน คนจังหวัดอะไรเนี่ยท่าน',
         picturePost: 'https://i.pinimg.com/originals/8f/69/78/prayutcza55+.jpg',
     },
+    {
+        name: 'พรี่โหน่ง',
+        pictureProfile:
+            'https://us-tuna-sounds-images.voicemod.net/f2704a30-e782-4217-9ac1-0ebb512c7dba-1664217479095.png',
+        description: 'แกทำร้ายเพื่อนชั้น แกไม่รอดแน่ คนอีสาน',
+        picturePost: 'https://i.pinimg.com/originals/8f/69/78/prayutcza55+.jpg',
+    },
 ];
 
 function Content() {
@@ -25,23 +33,40 @@ function Content() {
     return (
         <>
             <div className=" grid-rows-2 mb-[1rem] ">
-                <div className="flex place-content-center rounded-t-lg  border-solid bg-body-color  ml-[7rem] w-[50rem] h-[5rem] ">
+                <div className="flex place-content-center rounded-t-lg  border-solid bg-body-color  ml-[7rem] w-[45rem] h-[5rem] ">
                     <div className="mt-[1rem] mr-[1rem] rounded-full w-10 h-10 bg-gray-700"></div>
-                    <input
+                    {/* <input
                         placeholder="คุณคิดอะไรอยู่"
-                        className="w-[35rem]  mt-[1.1rem] h-[2.3rem] rounded-full border-solid border-2 "
+                        className="w-[35rem] bg-place-holder-color mt-[1.1rem] h-[2.3rem] rounded-full border-solid border-2 "
                         value={textContent}
                         onChange={(event) => {
                             setTextContent(event.target.value);
                         }}
-                    ></input>
+                    ></input> */}
+                    <button
+                        placeholder="คุณคิดอะไรอยู่"
+                        className="w-[35rem] bg-place-holder-color mt-[1.1rem] h-[2.3rem] rounded-full hover:bg-hover-color hover:rounded-full"
+                    >
+                        <p className="flex ml-[1rem]">คุณคิดอะไรอยู่...</p>
+                    </button>
                 </div>
-                <div className="flex flex-row place-content-center rounded-b-lg bg-body-color  ml-[7rem] w-[50rem] h-[4rem]  pl-[7rem] pt-[1rem] ">
-                    <div className="basis-2/6  hover:bg-hover-color hover:rounded-md">
-                        ถ่ายทอดสด
+                {/* <div className="flex flex-row border-t-2 border-solid  border-diviner place-content-center rounded-b-lg bg-body-color  ml-[7rem] w-[45rem] h-[4rem]  pl-[7rem] pt-[1rem] "> */}
+                <div
+                    className="flex flex-row border-t-2 border-solid  border-diviner place-content-center rounded-b-lg bg-body-color 
+                 w-[45rem] ml-[7rem] p-[0.4rem]"
+                >
+                    <div className="basis-2/6 p-[0.8rem] flex  hover:bg-hover-color hover:rounded-md">
+                        <img src="/asset/img/facebook.png"></img>
+                        <p className="ml-[2rem]">ถ่ายทอดสด</p>
                     </div>
-                    <div className="basis-2/6  ">รูปภาพ/วิดีโอ</div>
-                    <div className="basis-2/6   ">ความรู้สึก/กิจกรรม</div>
+                    <div className="basis-2/6 flex p-[0.8rem] hover:bg-hover-color hover:rounded-md">
+                        <img src="/asset/img/gallery.png"></img>
+                        <p className="ml-[2rem]">รูปภาพ/วิดีโอ</p>
+                    </div>
+                    <div className="basis-2/6 flex p-[0.8rem] hover:bg-hover-color hover:rounded-md ">
+                        <img src="/asset/img/smile.png"></img>
+                        <p className="ml-[2rem]">ความรู้สึก/กิจกรรม</p>
+                    </div>
                 </div>
             </div>
 
@@ -63,7 +88,7 @@ const Post = ({ name, description, pictureProfile }) => {
     return (
         <>
             <div className="flex mt-4 ">
-                <div className="ml-[7rem] w-[50rem] rounded-t-lg  bg-body-color  ">
+                <div className="ml-[7rem] w-[45rem] rounded-t-lg  bg-body-color  ">
                     <div className="relative rounded-full w-10 h-10 bg-image">
                         <img
                             src={pictureProfile}
@@ -82,10 +107,31 @@ const Post = ({ name, description, pictureProfile }) => {
                     </p>
                 </div>
             </div>
-            <div className="flex flex-row place-content-center  rounded-b-lg bg-body-color  ml-[7rem] w-[50rem] h-[4rem] pl-[7rem] pt-[1rem] ">
-                <div className="basis-2/6 ">ถูกใจ</div>
-                <div className="basis-2/6 ">ความคิดเห็น</div>
-                <div className="basis-2/6  ">แชร์</div>
+            <div
+                className="flex flex-row border-t-2 border-solid  h-[3rem] border-diviner place-content-center rounded-b-lg bg-body-color 
+                 w-[45rem] ml-[7rem] p-[0.4rem]"
+            >
+                <div className="basis-2/6 p-[0.2rem] pl-[2rem] flex hover:bg-hover-color hover:rounded-md">
+                    <img
+                        className="ml-[2rem] w-[1.5rem] h-[1.5rem]"
+                        src="/asset/img/like.png"
+                    ></img>
+                    <p className="ml-[2rem]">ถูกใจ</p>
+                </div>
+                <div className="basis-2/6 flex p-[0.2rem] hover:bg-hover-color hover:rounded-md">
+                    <img
+                        className="ml-[2rem] w-[1.5rem] h-[1.5rem]"
+                        src="/asset/img/comment.png"
+                    ></img>
+                    <p className="ml-[2rem]">ความคิดเห็น</p>
+                </div>
+                <div className="basis-2/6 flex p-[0.2rem] hover:bg-hover-color hover:rounded-md ">
+                    <img
+                        className="ml-[2rem] w-[1.5rem] h-[1.5rem]"
+                        src="/asset/img/chat.png"
+                    ></img>
+                    <p className="ml-[2rem]">ส่ง</p>
+                </div>
             </div>
         </>
     );
