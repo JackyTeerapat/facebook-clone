@@ -1,4 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+:root {
+    background-color: #1e1e1e;
+    --font-whitecolor: #e4e6eb;
+    color: var(--font-whitecolor);
+}
