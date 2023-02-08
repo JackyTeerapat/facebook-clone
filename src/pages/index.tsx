@@ -65,43 +65,15 @@ const shortCutArr = [
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
         text: 'Otter Otter',
     },
-    {
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
-        text: 'Otter Otter',
-    },
-    {
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
-        text: 'Otter Otter',
-    },
-    {
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
-        text: 'Otter Otter',
-    },
-    {
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
-        text: 'Otter Otter',
-    },
-    {
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
-        text: 'Otter Otter',
-    },
-    {
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
-        text: 'Otter Otter',
-    },
-    {
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
-        text: 'Otter Otter',
-    },
 ];
 
 export default function Home() {
     return (
         <>
             <Navbar />
-            <div className="flex flex-row mt-4 overflow-hidden">
+            <div className="flex flex-row mt-4">
                 {/* left content */}
-                <div className="basis-1/6 min-h-[50rem] max-h-[30rem] hover:overflow-y-auto">
+                <div className="basis-1/6 min-h-[40rem]">
                     {/* <div className="basis-1/6 border-2 border-rose-500"> */}
                     {/* <div className="border-2 border-green-400 min-h-[20rem]"> */}
                     <Dropdown profileArr={profileArr} shape={'circle'} />
