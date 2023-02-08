@@ -35,31 +35,59 @@ const profileArr = [
         text: 'Watch',
     },
 ];
+const shortCutArr = [
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+];
 
 export default function Home() {
-    profileArr.map;
     return (
         <>
             <Navbar />
             <div className="flex flex-row mt-4">
+                {/* left content */}
                 <div className="basis-1/6 min-h-[40rem]">
                     {/* <div className="basis-1/6 border-2 border-rose-500"> */}
                     {/* <div className="border-2 border-green-400 min-h-[20rem]"> */}
-                    <div>
-                        {profileArr.map(
-                            (info: { img: string; text: string }) => {
-                                return (
-                                    <ItemBar img={info.img} text={info.text} />
-                                );
-                            }
-                        )}
+                    <Dropdown profileArr={profileArr} shape={'circle'} />
+                    <div className="border-t-[1.5px] my-3 border-bottom-menu mx-4 pt-3 text-base font-bold">
+                        ทางลัดของคุณ
                     </div>
-                    <Dropdown />
-
-                    <p>profile</p>
+                    <Dropdown profileArr={shortCutArr} shape={'square'} />
                 </div>
-                <div className="basis-4/6 min-h-fit h-24">content</div>
-                <div className="basis-1/6 min-h-fit h-24">contact</div>
+                {/* End left content */}
+                {/* center content */}
+                <div className="basis-4/6 min-h-fit h-24">center content</div>
+                {/* End center content */}
+                {/* right content */}
+                <div className="basis-1/6 min-h-fit h-24">right content</div>
+                {/* End right content */}
             </div>
         </>
     );

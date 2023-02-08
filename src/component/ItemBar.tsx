@@ -3,9 +3,10 @@ import Link from 'next/link';
 interface Props {
     img: string;
     text: string;
+    shape: string;
 }
 
-export default function ItemBar({ img, text }: Props) {
+export default function ItemBar({ img, text, shape }: Props) {
     return (
         <>
             <Link href="#">
@@ -16,11 +17,20 @@ export default function ItemBar({ img, text }: Props) {
                     >
                         <div className=""></div>
                         <div className="col-start-1 col-span-2 my-auto py-2">
-                            <img
-                                src={img}
-                                alt="img-profile"
-                                className="rounded-[50%] w-[36px] h-[36px] object-cover object-center drop-shadow-lg"
-                            />
+                            {shape === 'circle' && (
+                                <img
+                                    src={img}
+                                    alt="img-profile"
+                                    className="rounded-[50%] w-[36px] h-[36px] object-cover object-center drop-shadow-lg"
+                                />
+                            )}
+                            {shape === 'square' && (
+                                <img
+                                    src={img}
+                                    alt="img-profile"
+                                    className="rounded-md w-[36px] h-[36px] object-cover object-center drop-shadow-lg"
+                                />
+                            )}
                         </div>
                         <div className="col-start-3 col-span-8 my-auto pl-">
                             <span className="font-medium ">{text}</span>

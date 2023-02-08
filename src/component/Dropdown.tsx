@@ -1,10 +1,47 @@
 import { useState } from 'react';
 import ItemBar from './ItemBar';
 
-export default function Dropdown() {
+interface Props {
+    profileArr: { img: string; text: string }[];
+    shape: string;
+}
+
+export default function Dropdown({ profileArr, shape }: Props) {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
+            {/* Menu */}
+            {!isOpen ? (
+                <div>
+                    {profileArr
+                        .slice(0, 5)
+                        .map((info: { img: string; text: string }) => {
+                            return (
+                                <ItemBar
+                                    img={info.img}
+                                    text={info.text}
+                                    shape={shape}
+                                />
+                            );
+                        })}
+                </div>
+            ) : (
+                <div>
+                    {profileArr
+                        .slice(0, profileArr.length)
+                        .map((info: { img: string; text: string }) => {
+                            return (
+                                <ItemBar
+                                    img={info.img}
+                                    text={info.text}
+                                    shape={shape}
+                                />
+                            );
+                        })}
+                </div>
+            )}
+
+            {/* End menu */}
             {/* Dropdown  */}
             <div className="px-2">
                 <div
@@ -52,7 +89,7 @@ export default function Dropdown() {
                     </div>
                 </div>
             </div>
-            {/* End Dropdow */}
+            {/* End Dropdown */}
         </>
     );
 }

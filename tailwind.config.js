@@ -15,6 +15,7 @@ module.exports = {
             }),
             colors: {
                 'hover-color': '#303031',
+                'bottom-menu': '#3e4042',
             },
         },
     },
