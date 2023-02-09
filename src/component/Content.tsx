@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
+import CardStory from '@/component/CardStory';
 // import Post from './Post';
 interface Prop {
     profile_img: string;
@@ -13,7 +14,8 @@ const postItem = [
         pictureProfile: 'https://i.redd.it/faelbyv9bol21.jpg',
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        picturePost: 'https://i.pinimg.com/originals/8f/69/78/prayutcza55+.jpg',
+        picturePost:
+            'https://cdn.pixabay.com/photo/2022/12/16/15/37/flower-7659988_960_720.jpg',
     },
     {
         name: 'หัวหน้าชมรมคนชอบหมี',
@@ -21,14 +23,66 @@ const postItem = [
             'https://img.soccersuck.com/images/2021/08/31/B719EC19-10C6-46F9-B206-944B4BEE7E93.jpg',
         description:
             'สวัสดีครับท่านสมาชิกชมรมคนชอบ หมี ไม่เข้าใจจริงๆเลยทั้งเด็กทั้งผู้ใหญ่ ตะโกนหา สรรหาแต่หมี วันพระวันเจ้าไม่เว้นกันเลยยยยยยย คนที่ไหน คนจังหวัดอะไรเนี่ยท่าน',
-        picturePost: 'https://i.pinimg.com/originals/8f/69/78/prayutcza55+.jpg',
+        picturePost:
+            'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_960_720.jpg',
     },
     {
         name: 'พรี่โหน่ง',
         pictureProfile:
             'https://us-tuna-sounds-images.voicemod.net/f2704a30-e782-4217-9ac1-0ebb512c7dba-1664217479095.png',
         description: 'แกทำร้ายเพื่อนชั้น แกไม่รอดแน่ คนอีสาน',
-        picturePost: 'https://i.pinimg.com/originals/8f/69/78/prayutcza55+.jpg',
+        picturePost:
+            'https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg',
+    },
+    {
+        name: 'ประยุทธ์ซ่า',
+        pictureProfile: 'https://i.redd.it/faelbyv9bol21.jpg',
+        description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        picturePost:
+            'https://cdn.pixabay.com/photo/2022/12/16/15/37/flower-7659988_960_720.jpg',
+    },
+    {
+        name: 'หัวหน้าชมรมคนชอบหมี',
+        pictureProfile:
+            'https://img.soccersuck.com/images/2021/08/31/B719EC19-10C6-46F9-B206-944B4BEE7E93.jpg',
+        description:
+            'สวัสดีครับท่านสมาชิกชมรมคนชอบ หมี ไม่เข้าใจจริงๆเลยทั้งเด็กทั้งผู้ใหญ่ ตะโกนหา สรรหาแต่หมี วันพระวันเจ้าไม่เว้นกันเลยยยยยยย คนที่ไหน คนจังหวัดอะไรเนี่ยท่าน',
+        picturePost:
+            'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_960_720.jpg',
+    },
+    {
+        name: 'พรี่โหน่ง',
+        pictureProfile:
+            'https://us-tuna-sounds-images.voicemod.net/f2704a30-e782-4217-9ac1-0ebb512c7dba-1664217479095.png',
+        description: 'แกทำร้ายเพื่อนชั้น แกไม่รอดแน่ คนอีสาน',
+        picturePost:
+            'https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg',
+    },
+    {
+        name: 'ประยุทธ์ซ่า',
+        pictureProfile: 'https://i.redd.it/faelbyv9bol21.jpg',
+        description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        picturePost:
+            'https://cdn.pixabay.com/photo/2022/12/16/15/37/flower-7659988_960_720.jpg',
+    },
+    {
+        name: 'หัวหน้าชมรมคนชอบหมี',
+        pictureProfile:
+            'https://img.soccersuck.com/images/2021/08/31/B719EC19-10C6-46F9-B206-944B4BEE7E93.jpg',
+        description:
+            'สวัสดีครับท่านสมาชิกชมรมคนชอบ หมี ไม่เข้าใจจริงๆเลยทั้งเด็กทั้งผู้ใหญ่ ตะโกนหา สรรหาแต่หมี วันพระวันเจ้าไม่เว้นกันเลยยยยยยย คนที่ไหน คนจังหวัดอะไรเนี่ยท่าน',
+        picturePost:
+            'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_960_720.jpg',
+    },
+    {
+        name: 'พรี่โหน่ง',
+        pictureProfile:
+            'https://us-tuna-sounds-images.voicemod.net/f2704a30-e782-4217-9ac1-0ebb512c7dba-1664217479095.png',
+        description: 'แกทำร้ายเพื่อนชั้น แกไม่รอดแน่ คนอีสาน',
+        picturePost:
+            'https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg',
     },
 ];
 
@@ -99,6 +153,23 @@ function Content({ profile_img, profile_name }: Prop) {
             ) : null}
 
             <div className="justify-center items-center 2xl:ml-[10rem]">
+                <div className="mb-[1rem] flex-col">
+                    <div className="flex  flex-row border-b-2 border-solid  border-diviner place-content-center rounded-t-lg bg-body-color w-[45rem] ml-[7rem] p-[0.4rem]">
+                        <div className="basis-3/6 p-[0.8rem] flex  hover:bg-hover-color hover:rounded-md">
+                            <p className="ml-[10rem]">Story</p>
+                        </div>
+                        <div className="basis-3/6 flex p-[0.8rem] hover:bg-hover-color hover:rounded-md">
+                            <p className="ml-[10rem]">Reel</p>
+                        </div>
+                    </div>
+                    <div
+                        className="flex flex-row  place-content-center rounded-b-lg bg-body-color 
+                 w-[45rem] ml-[7rem] p-[0.4rem]"
+                    >
+                        <CardStory postItem={postItem} />
+                    </div>
+                </div>
+
                 <div className=" grid-rows-2 mb-[1rem] ">
                     <div className="flex place-content-center rounded-t-lg  border-solid bg-body-color  ml-[7rem] w-[45rem] h-[5rem] ">
                         <div className="mt-[1rem] mr-[1rem] rounded-full w-10 h-10 bg-gray-700">
