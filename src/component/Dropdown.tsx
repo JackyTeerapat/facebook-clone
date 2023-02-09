@@ -85,7 +85,11 @@ export default function Dropdown({ profileArr, shape }: Props) {
                         </div>
                     </div>
                     <div className="col-start-3 col-span-8 my-auto pl-">
-                        <span className="font-medium ">ดูเพิ่มเติม</span>
+                        {!isOpen ? (
+                            <span className="font-medium ">ดูเพิ่มเติม</span>
+                        ) : (
+                            <span className="font-medium ">ดูน้อยลง</span>
+                        )}
                     </div>
                 </div>
             </div>

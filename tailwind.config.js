@@ -19,7 +19,9 @@ module.exports = {
                 'bottom-menu': '#3e4042',
                 'diviner': '#323233',
                 'place-holder-color': '#3a3b3d',
-                'close-modal':'#3a3b3c'
+                'close-modal':'#3a3b3c',
+                'input-color': '#3a3b3c',
+                'hover-nav-right': '#4E4F50',
             }
         },
     },

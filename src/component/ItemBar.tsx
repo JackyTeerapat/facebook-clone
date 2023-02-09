@@ -17,7 +17,20 @@ export default function ItemBar({ img, text, shape }: Props) {
                     >
                         <div className=""></div>
                         <div className="col-start-1 col-span-2 my-auto py-2">
-                            {shape === 'circle' && (
+                            <img
+                                src={img}
+                                alt="img-profile"
+                                // className="rounded-[50%] w-[36px] h-[36px] object-cover object-center drop-shadow-lg"
+                                className={`${
+                                    shape === 'circle'
+                                        ? 'rounded-[50%]'
+                                        : shape === 'square'
+                                        ? 'rounded-md'
+                                        : null
+                                } w-[36px] h-[36px] object-cover object-center drop-shadow-lg`}
+                            />
+
+                            {/* {shape === 'circle' && (
                                 <img
                                     src={img}
                                     alt="img-profile"
@@ -30,7 +43,7 @@ export default function ItemBar({ img, text, shape }: Props) {
                                     alt="img-profile"
                                     className="rounded-md w-[36px] h-[36px] object-cover object-center drop-shadow-lg"
                                 />
-                            )}
+                            )} */}
                         </div>
                         <div className="col-start-3 col-span-8 my-auto pl-">
                             <span className="font-medium ">{text}</span>

@@ -5,4 +5,5 @@
     background-color: #1e1e1e;
     --font-whitecolor: #e4e6eb;
     color: var(--font-whitecolor);
+    --color-iconMenu: #8d8f94;
 }
