@@ -162,7 +162,7 @@ export default function Home() {
             <Navbar profile_img={profileArr[0].img} />
             <div className="flex flex-row mt-4">
                 {/* left content */}
-                <div className="basis-1/6 min-h-[45rem] max-h-[50rem] hover:overflow-y-auto">
+                <div className="basis-1/6 min-h-[45rem] max-h-[50rem] hover:overflow-y-auto ">
                     {/* <div className="basis-1/6 border-2 border-rose-500"> */}
                     {/* <div className="border-2 border-green-400 min-h-[20rem]"> */}
                     <Dropdown profileArr={profileArr} shape={'circle'} />
@@ -174,7 +174,10 @@ export default function Home() {
                 {/* End left content */}
                 {/* center content */}
                 <div className="basis-4/6 min-h-fit h-24">
-                    <Content />
+                    <Content
+                        profile_img={profileArr[0].img}
+                        profile_name={profileArr[0].text}
+                    />
                 </div>
                 {/* End center content */}
                 {/* right content */}

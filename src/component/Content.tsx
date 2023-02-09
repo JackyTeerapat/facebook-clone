@@ -1,6 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
+import Image from 'next/image';
 // import Post from './Post';
+interface Prop {
+    profile_img: string;
+    profile_name: string;
+}
 
 const postItem = [
     {
@@ -18,40 +23,128 @@ const postItem = [
             'สวัสดีครับท่านสมาชิกชมรมคนชอบ หมี ไม่เข้าใจจริงๆเลยทั้งเด็กทั้งผู้ใหญ่ ตะโกนหา สรรหาแต่หมี วันพระวันเจ้าไม่เว้นกันเลยยยยยยย คนที่ไหน คนจังหวัดอะไรเนี่ยท่าน',
         picturePost: 'https://i.pinimg.com/originals/8f/69/78/prayutcza55+.jpg',
     },
+    {
+        name: 'พรี่โหน่ง',
+        pictureProfile:
+            'https://us-tuna-sounds-images.voicemod.net/f2704a30-e782-4217-9ac1-0ebb512c7dba-1664217479095.png',
+        description: 'แกทำร้ายเพื่อนชั้น แกไม่รอดแน่ คนอีสาน',
+        picturePost: 'https://i.pinimg.com/originals/8f/69/78/prayutcza55+.jpg',
+    },
 ];
 
-function Content() {
+function Content({ profile_img, profile_name }: Prop) {
     const [textContent, setTextContent] = useState('');
+    const [showModal, setShowModal] = useState(false);
+    console.log();
     return (
         <>
-            <div className=" grid-rows-2 mb-[1rem] ">
-                <div className="flex place-content-center rounded-t-lg  border-solid bg-body-color  ml-[7rem] w-[50rem] h-[5rem] ">
-                    <div className="mt-[1rem] mr-[1rem] rounded-full w-10 h-10 bg-gray-700"></div>
-                    <input
-                        placeholder="คุณคิดอะไรอยู่"
-                        className="w-[35rem]  mt-[1.1rem] h-[2.3rem] rounded-full border-solid border-2 "
-                        value={textContent}
-                        onChange={(event) => {
-                            setTextContent(event.target.value);
-                        }}
-                    ></input>
-                </div>
-                <div className="flex flex-row place-content-center rounded-b-lg bg-body-color  ml-[7rem] w-[50rem] h-[4rem]  pl-[7rem] pt-[1rem] ">
-                    <div className="basis-2/6  hover:bg-hover-color hover:rounded-md">
-                        ถ่ายทอดสด
+            {showModal ? (
+                <>
+                    <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                            {/*content*/}
+                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-[30rem] bg-body-color outline-none focus:outline-none">
+                                {/*header*/}
+                                <div className="flex items-start justify-between p-5 border-b-2 border-solid border-diviner  bg-body-color rounded-t">
+                                    <p className="ml-[11rem]">สร้างโพสต์</p>
+                                    <button
+                                        className="bg-transparent border-0 text-black float-right"
+                                        onClick={() => setShowModal(false)}
+                                    >
+                                        <span className="text-black opacity-7 h-6 w-6 text-xl block  hover:bg-hover-color bg-close-modal py-0 rounded-full">
+                                            x
+                                        </span>
+                                    </button>
+                                </div>
+                                {/*body*/}
+                                <div className="ml-[1rem] mt-[0.5rem] w-[23rem] rounded-t-lg  bg-body-color  ">
+                                    <div className="relative flex rounded-full w-15 h-10 ">
+                                        <img
+                                            src={profile_img}
+                                            alt="profile"
+                                            className="w-10 h-10 rounded-full object-cover  hover:contrast-[.6]"
+                                        />
+                                        <p className="pt-[0.2rem] pl-[1.5rem] w-[15rem]">
+                                            {profile_name}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="relative p-6 flex-auto">
+                                    <input
+                                        placeholder="คุณคิดอะไรอยู่"
+                                        className={
+                                            ' bg-body-color  rounded-lg p-3 w-full '
+                                        }
+                                        value={textContent}
+                                        onChange={(event) => {
+                                            setTextContent(event.target.value);
+                                        }}
+                                    ></input>
+                                </div>
+                                {/*footer*/}
+                                <div className="flex items-center justify-end p-6 border-t border-solid border-diviner rounded-b">
+                                    <button
+                                        className="bg-place-holder-color text-white font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 w-full h-[2.5rem]"
+                                        type="button"
+                                        onClick={() => setShowModal(false)}
+                                    >
+                                        โพสต์
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="basis-2/6  ">รูปภาพ/วิดีโอ</div>
-                    <div className="basis-2/6   ">ความรู้สึก/กิจกรรม</div>
-                </div>
-            </div>
+                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                </>
+            ) : null}
 
-            {postItem.map((item, index) => (
-                <Post
-                    name={item.name}
-                    description={item.description}
-                    pictureProfile={item.pictureProfile}
-                ></Post>
-            ))}
+            <div className="justify-center items-center 2xl:ml-[10rem]">
+                <div className=" grid-rows-2 mb-[1rem] ">
+                    <div className="flex place-content-center rounded-t-lg  border-solid bg-body-color  ml-[7rem] w-[45rem] h-[5rem] ">
+                        <div className="mt-[1rem] mr-[1rem] rounded-full w-10 h-10 bg-gray-700">
+                            <img
+                                src={profile_img}
+                                alt="profile"
+                                className="w-10 h-10 rounded-full object-cover  hover:contrast-[.6]"
+                            />
+                        </div>
+                        <button
+                            placeholder="คุณคิดอะไรอยู่"
+                            className="w-[35rem] bg-place-holder-color mt-[1.1rem] h-[2.3rem] rounded-full hover:bg-hover-color hover:rounded-full"
+                            type="button"
+                            onClick={() => setShowModal(true)}
+                        >
+                            <p className="flex ml-[1rem]">คุณคิดอะไรอยู่...</p>
+                        </button>
+                    </div>
+                    {/* <div className="flex flex-row border-t-2 border-solid  border-diviner place-content-center rounded-b-lg bg-body-color  ml-[7rem] w-[45rem] h-[4rem]  pl-[7rem] pt-[1rem] "> */}
+                    <div
+                        className="flex flex-row border-t-2 border-solid  border-diviner place-content-center rounded-b-lg bg-body-color 
+                 w-[45rem] ml-[7rem] p-[0.4rem]"
+                    >
+                        <div className="basis-2/6 p-[0.8rem] flex  hover:bg-hover-color hover:rounded-md">
+                            <img src="/asset/img/facebook.png"></img>
+                            <p className="ml-[2rem]">ถ่ายทอดสด</p>
+                        </div>
+                        <div className="basis-2/6 flex p-[0.8rem] hover:bg-hover-color hover:rounded-md">
+                            <img src="/asset/img/gallery.png"></img>
+                            <p className="ml-[2rem]">รูปภาพ/วิดีโอ</p>
+                        </div>
+                        <div className="basis-2/6 flex p-[0.8rem] hover:bg-hover-color hover:rounded-md ">
+                            <img src="/asset/img/smile.png"></img>
+                            <p className="ml-[2rem]">ความรู้สึก/กิจกรรม</p>
+                        </div>
+                    </div>
+                </div>
+
+                {postItem.map((item, index) => (
+                    <Post
+                        name={item.name}
+                        description={item.description}
+                        pictureProfile={item.pictureProfile}
+                    ></Post>
+                ))}
+            </div>
             {/* <Post
                 name="ประยุทธ์"
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -63,7 +156,7 @@ const Post = ({ name, description, pictureProfile }) => {
     return (
         <>
             <div className="flex mt-4 ">
-                <div className="ml-[7rem] w-[50rem] rounded-t-lg  bg-body-color  ">
+                <div className="ml-[7rem] w-[45rem] rounded-t-lg  bg-body-color  ">
                     <div className="relative rounded-full w-10 h-10 bg-image">
                         <img
                             src={pictureProfile}
@@ -77,15 +170,36 @@ const Post = ({ name, description, pictureProfile }) => {
                             2 ช.ม.
                         </p>
                     </div>
-                    <p className="mt-[1.5rem] mb-[1rem] ml-[1.5rem] mr-[1.5rem]">
+                    <p className="mt-[1.5rem] mb-[1rem] ml-[1.5rem] mr-[1.5rem] w-[43rem]">
                         {description}
                     </p>
                 </div>
             </div>
-            <div className="flex flex-row place-content-center  rounded-b-lg bg-body-color  ml-[7rem] w-[50rem] h-[4rem] pl-[7rem] pt-[1rem] ">
-                <div className="basis-2/6 ">ถูกใจ</div>
-                <div className="basis-2/6 ">ความคิดเห็น</div>
-                <div className="basis-2/6  ">แชร์</div>
+            <div
+                className="flex flex-row border-t-2 border-solid  h-[3rem] border-diviner place-content-center rounded-b-lg bg-body-color 
+                 w-[45rem] ml-[7rem] p-[0.4rem]"
+            >
+                <div className="basis-2/6 p-[0.2rem] pl-[2rem] flex hover:bg-hover-color hover:rounded-md">
+                    <img
+                        className="ml-[2rem] w-[1.5rem] h-[1.5rem]"
+                        src="/asset/img/like.png"
+                    ></img>
+                    <p className="ml-[2rem]">ถูกใจ</p>
+                </div>
+                <div className="basis-2/6 flex p-[0.2rem] hover:bg-hover-color hover:rounded-md">
+                    <img
+                        className="ml-[2rem] w-[1.5rem] h-[1.5rem]"
+                        src="/asset/img/comment.png"
+                    ></img>
+                    <p className="ml-[2rem]">ความคิดเห็น</p>
+                </div>
+                <div className="basis-2/6 flex p-[0.2rem] hover:bg-hover-color hover:rounded-md ">
+                    <img
+                        className="ml-[2rem] w-[1.5rem] h-[1.5rem]"
+                        src="/asset/img/chat.png"
+                    ></img>
+                    <p className="ml-[2rem]">ส่ง</p>
+                </div>
             </div>
         </>
     );
