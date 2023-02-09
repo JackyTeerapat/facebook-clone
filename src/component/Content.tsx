@@ -29,7 +29,8 @@ const postItem = [
 ];
 function Content() {
     const [textContent, setTextContent] = useState('');
-    const [showModal, setShowModal] = React.useState(false);
+    const [showModal, setShowModal] = useState(false);
+    console.log();
     return (
         <>
             {showModal ? (
@@ -72,12 +73,16 @@ function Content() {
                                         className={
                                             ' bg-body-color  rounded-lg p-3 w-full '
                                         }
+                                        value={textContent}
+                                        onChange={(event) => {
+                                            setTextContent(event.target.value);
+                                        }}
                                     ></input>
                                 </div>
                                 {/*footer*/}
                                 <div className="flex items-center justify-end p-6 border-t border-solid border-diviner rounded-b">
                                     <button
-                                        className="bg-place-holder-color text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 w-full h-[2.5rem]"
+                                        className="bg-place-holder-color text-white font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 w-full h-[2.5rem]"
                                         type="button"
                                         onClick={() => setShowModal(false)}
                                     >
