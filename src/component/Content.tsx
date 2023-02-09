@@ -2,6 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
 // import Post from './Post';
+interface Prop {
+    profile_img: string;
+    profile_name: string;
+}
 
 const postItem = [
     {
@@ -27,7 +31,8 @@ const postItem = [
         picturePost: 'https://i.pinimg.com/originals/8f/69/78/prayutcza55+.jpg',
     },
 ];
-function Content() {
+
+function Content({ profile_img, profile_name }: Prop) {
     const [textContent, setTextContent] = useState('');
     const [showModal, setShowModal] = useState(false);
     console.log();
@@ -41,9 +46,7 @@ function Content() {
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-[30rem] bg-body-color outline-none focus:outline-none">
                                 {/*header*/}
                                 <div className="flex items-start justify-between p-5 border-b-2 border-solid border-diviner  bg-body-color rounded-t">
-                                    <p className="text-3xl ml-[10rem]">
-                                        สร้างโพสต์
-                                    </p>
+                                    <p className="ml-[11rem]">สร้างโพสต์</p>
                                     <button
                                         className="bg-transparent border-0 text-black float-right"
                                         onClick={() => setShowModal(false)}
@@ -55,15 +58,14 @@ function Content() {
                                 </div>
                                 {/*body*/}
                                 <div className="ml-[1rem] mt-[0.5rem] w-[23rem] rounded-t-lg  bg-body-color  ">
-                                    <div className="relative rounded-full w-10 h-10 bg-gray-700">
-                                        {/* <img
-                                            src={profileItem.pictureProfile}
-                                            className="absolute mt-[1rem] ml-[1.5rem] rounded-full w-10 h-10 bg-image"
-                                        ></img> */}
-                                        {/* <img src={pictureProfile}></img> */}
-                                        <p className="pt-[0.2rem] pl-[3.5rem] ">
-                                            {/* {profileItem.name} */}
-                                            test
+                                    <div className="relative flex rounded-full w-15 h-10 ">
+                                        <img
+                                            src={profile_img}
+                                            alt="profile"
+                                            className="w-10 h-10 rounded-full object-cover  hover:contrast-[.6]"
+                                        />
+                                        <p className="pt-[0.2rem] pl-[1.5rem] w-[15rem]">
+                                            {profile_name}
                                         </p>
                                     </div>
                                 </div>
@@ -96,45 +98,53 @@ function Content() {
                 </>
             ) : null}
 
-            <div className=" grid-rows-2 mb-[1rem] ">
-                <div className="flex place-content-center rounded-t-lg  border-solid bg-body-color  ml-[7rem] w-[45rem] h-[5rem] ">
-                    <div className="mt-[1rem] mr-[1rem] rounded-full w-10 h-10 bg-gray-700"></div>
-                    <button
-                        placeholder="คุณคิดอะไรอยู่"
-                        className="w-[35rem] bg-place-holder-color mt-[1.1rem] h-[2.3rem] rounded-full hover:bg-hover-color hover:rounded-full"
-                        type="button"
-                        onClick={() => setShowModal(true)}
-                    >
-                        <p className="flex ml-[1rem]">คุณคิดอะไรอยู่...</p>
-                    </button>
-                </div>
-                {/* <div className="flex flex-row border-t-2 border-solid  border-diviner place-content-center rounded-b-lg bg-body-color  ml-[7rem] w-[45rem] h-[4rem]  pl-[7rem] pt-[1rem] "> */}
-                <div
-                    className="flex flex-row border-t-2 border-solid  border-diviner place-content-center rounded-b-lg bg-body-color 
+            <div className="justify-center items-center 2xl:ml-[10rem]">
+                <div className=" grid-rows-2 mb-[1rem] ">
+                    <div className="flex place-content-center rounded-t-lg  border-solid bg-body-color  ml-[7rem] w-[45rem] h-[5rem] ">
+                        <div className="mt-[1rem] mr-[1rem] rounded-full w-10 h-10 bg-gray-700">
+                            <img
+                                src={profile_img}
+                                alt="profile"
+                                className="w-10 h-10 rounded-full object-cover  hover:contrast-[.6]"
+                            />
+                        </div>
+                        <button
+                            placeholder="คุณคิดอะไรอยู่"
+                            className="w-[35rem] bg-place-holder-color mt-[1.1rem] h-[2.3rem] rounded-full hover:bg-hover-color hover:rounded-full"
+                            type="button"
+                            onClick={() => setShowModal(true)}
+                        >
+                            <p className="flex ml-[1rem]">คุณคิดอะไรอยู่...</p>
+                        </button>
+                    </div>
+                    {/* <div className="flex flex-row border-t-2 border-solid  border-diviner place-content-center rounded-b-lg bg-body-color  ml-[7rem] w-[45rem] h-[4rem]  pl-[7rem] pt-[1rem] "> */}
+                    <div
+                        className="flex flex-row border-t-2 border-solid  border-diviner place-content-center rounded-b-lg bg-body-color 
                  w-[45rem] ml-[7rem] p-[0.4rem]"
-                >
-                    <div className="basis-2/6 p-[0.8rem] flex  hover:bg-hover-color hover:rounded-md">
-                        <img src="/asset/img/facebook.png"></img>
-                        <p className="ml-[2rem]">ถ่ายทอดสด</p>
-                    </div>
-                    <div className="basis-2/6 flex p-[0.8rem] hover:bg-hover-color hover:rounded-md">
-                        <img src="/asset/img/gallery.png"></img>
-                        <p className="ml-[2rem]">รูปภาพ/วิดีโอ</p>
-                    </div>
-                    <div className="basis-2/6 flex p-[0.8rem] hover:bg-hover-color hover:rounded-md ">
-                        <img src="/asset/img/smile.png"></img>
-                        <p className="ml-[2rem]">ความรู้สึก/กิจกรรม</p>
+                    >
+                        <div className="basis-2/6 p-[0.8rem] flex  hover:bg-hover-color hover:rounded-md">
+                            <img src="/asset/img/facebook.png"></img>
+                            <p className="ml-[2rem]">ถ่ายทอดสด</p>
+                        </div>
+                        <div className="basis-2/6 flex p-[0.8rem] hover:bg-hover-color hover:rounded-md">
+                            <img src="/asset/img/gallery.png"></img>
+                            <p className="ml-[2rem]">รูปภาพ/วิดีโอ</p>
+                        </div>
+                        <div className="basis-2/6 flex p-[0.8rem] hover:bg-hover-color hover:rounded-md ">
+                            <img src="/asset/img/smile.png"></img>
+                            <p className="ml-[2rem]">ความรู้สึก/กิจกรรม</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {postItem.map((item, index) => (
-                <Post
-                    name={item.name}
-                    description={item.description}
-                    pictureProfile={item.pictureProfile}
-                ></Post>
-            ))}
+                {postItem.map((item, index) => (
+                    <Post
+                        name={item.name}
+                        description={item.description}
+                        pictureProfile={item.pictureProfile}
+                    ></Post>
+                ))}
+            </div>
             {/* <Post
                 name="ประยุทธ์"
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -160,7 +170,7 @@ const Post = ({ name, description, pictureProfile }) => {
                             2 ช.ม.
                         </p>
                     </div>
-                    <p className="mt-[1.5rem] mb-[1rem] ml-[1.5rem] mr-[1.5rem]">
+                    <p className="mt-[1.5rem] mb-[1rem] ml-[1.5rem] mr-[1.5rem] w-[43rem]">
                         {description}
                     </p>
                 </div>
