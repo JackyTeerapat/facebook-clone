@@ -5,11 +5,14 @@ import Navbar from '@/component/Navbar';
 import Content from '../component/Content';
 import ItemBar from '@/component/ItemBar';
 import Dropdown from '@/component/Dropdown';
+import SearchIcon from '@/svg/SearchIcon';
+import VdoIcon from '@/svg/VdoIcon';
+import MoreIcon from '@/svg/MoreIcon';
 
-type Info = {
+interface Info {
     img: string;
     text: string;
-};
+}
 const profileArr = [
     {
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
@@ -94,6 +97,64 @@ const shortCutArr = [
         text: 'Otter Otter',
     },
 ];
+const chatProfileArr = [
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+    {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEA0OsTu3ZXjBGD1BfNPrZsxi0pbDntk6mQ&usqp=CAU',
+        text: 'Otter Otter',
+    },
+];
 
 export default function Home() {
     return (
@@ -117,7 +178,56 @@ export default function Home() {
                 </div>
                 {/* End center content */}
                 {/* right content */}
-                <div className="basis-1/6 min-h-fit h-24">right content</div>
+                <div className="basis-1/6 min-h-fit h-24">
+                    {/* <div className="border-t-[1.5px] my-3 border-bottom-menu mx-4 pt-3 text-base font-bold"> */}
+                    {/* title section */}
+                    <div>
+                        <div className="grid grid-cols-2">
+                            <p className="text-base font-bold flex mt-1">
+                                ผู้ติดต่อ
+                            </p>
+                            <div className="grid grid-cols-3 justify-self-end pr-4">
+                                {/* icon vdo  */}
+                                <div className="w-[2rem] h-[2rem] overflow-hidden rounded-full">
+                                    <div className="w-full h-full  hover:bg-hover-color">
+                                        <div className="flex justify-center items-center w-[2rem] h-[2rem]">
+                                            <VdoIcon />
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* icon search*/}
+                                <div className="w-[2rem] h-[2rem] overflow-hidden rounded-full">
+                                    <div className="w-full h-full  hover:bg-hover-color">
+                                        <div className="flex justify-center items-center w-[2rem] h-[2rem]">
+                                            <SearchIcon />
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* icon more */}
+                                <div className="w-[2rem] h-[2rem] overflow-hidden rounded-full">
+                                    <div className="w-full h-full  hover:bg-hover-color">
+                                        <div className="flex justify-center items-center w-[2rem] h-[2rem]">
+                                            <MoreIcon />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* contect section */}
+                    <div className="mt-1">
+                        {chatProfileArr.map(({ img, text }) => {
+                            return (
+                                <ItemBar
+                                    img={img}
+                                    text={text}
+                                    shape="circle"
+                                    status={1}
+                                />
+                            );
+                        })}
+                    </div>
+                </div>
                 {/* End right content */}
             </div>
         </>

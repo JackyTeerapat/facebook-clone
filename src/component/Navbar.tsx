@@ -1,7 +1,7 @@
 import CircleIcon from '@/svg/CircleIcon';
 import GameIcon from '@/svg/GameIcon';
 import GroupIcon from '@/svg/GroupIcon';
-import HomeIcon from '@/svg/homeicon';
+import HomeIcon from '@/svg/HomeIcon';
 import LogoIcon from '@/svg/LogoIcon';
 import MarketIcon from '@/svg/MarketIcon';
 import MessengerIcon from '@/svg/MessengerIcon';
@@ -54,8 +54,9 @@ function Navbar({ profile_img }: Prop) {
                             <MarketIcon />
                         </div>
                     </div>
-                    <div className="relative w-full h-full  hover:bg-hover-color hover:rounded-md">
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-full h-full  hover:bg-hover-color hover:rounded-md">
+                        <div className="flex w-full h-[3.5rem] justify-center items-center">
+                            {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"> */}
                             <GroupIcon />
                         </div>
                     </div>
